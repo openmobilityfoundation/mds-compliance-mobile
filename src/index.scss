@@ -1,0 +1,83 @@
+/*
+    Copyright 2019 City of Los Angeles.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ */
+
+// Import city-specific Ionic configuration (e.g. colors).
+@import "config/city.scss";
+
+/* Show or hide components based on parent having audit as a class */
+/* hide elements wiht `if-` or `if-not` classes */
+.if-idle, .if-not-idle                              { display: none; }
+.if-audit_start, .if-not-audit_start                { display: none; }
+.if-trip_start, .if-not-trip_start                  { display: none; }
+.if-trip_end, .if-not-trip_end                      { display: none; }
+.if-audit_end, .if-not-audit_end                    { display: none; }
+.if-audit_issue, .if-not-audit_issue                { display: none; }
+
+/* show `if-` classes if parent has that state */
+.audit_state.idle .if-idle                          { display: block; }
+.audit_state.audit_start .if-audit_start            { display: block; }
+.audit_state.trip_start .if-trip_start              { display: block; }
+.audit_state.trip_end .if-trip_end                  { display: block; }
+.audit_state.audit_end .if-audit_end                { display: block; }
+.audit_state.audit_issue .if-audit_issue            { display: block; }
+
+/* show `if-not-` classes if parent does not have that state */
+.audit_state:not(.idle) .if-not-idle                { display: block; }
+.audit_state:not(.audit_start) .if-not-audit_start  { display: block; }
+.audit_state:not(.trip_start) .if-not-trip_start    { display: block; }
+.audit_state:not(.trip_end) .if-not-trip_end        { display: block; }
+.audit_state:not(.audit_end) .if-not-audit_end      { display: block; }
+.audit_state:not(.audit_issue) .if-not-audit_issue  { display: block; }
+
+/* white background for "pages" and menu to avoid visual glitches */
+.ion-page,
+ion-content {
+  --background: white;
+  background: white;
+}
+
+//
+//  Utility classes
+//
+
+/* hint text */
+.hint {
+  font-size: 80%;
+  color: #666;
+}
+
+/* Remove padding */
+.no-padding {
+  padding: 0;
+}
+
+/* Ellipsize content */
+.ellipsized {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* flexbox justify content center */
+.center-justify-content {
+  width: 100%;
+  justify-content: center;
+}
+
+/* cursor: pointer */
+.pointed {
+  cursor: pointer;
+}

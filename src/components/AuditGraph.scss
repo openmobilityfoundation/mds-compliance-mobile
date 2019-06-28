@@ -1,0 +1,207 @@
+/*
+    Copyright 2019 City of Los Angeles.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+ */
+
+$audit-col-width: 50px;
+$vehicle-col-width: 85px;
+$telemetry-col-width: 25px;
+$issue_red: #ce5540;
+
+.AuditGraph {
+  position: relative;
+  overflow: visible;
+  // extra margin on the bottom for scrolling
+  margin-bottom: 40px;
+  //border: 1px solid blue;
+
+  .AuditGraph-Column {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+
+    &.provider {
+      left: 50%;
+
+      .AuditGraph-Marks {
+        border-left: 1px solid #ccc;
+      }
+    }
+  }
+
+  .AuditGraph-Marks {
+    position: relative;
+    margin-top: 10px;
+    height: 450px;
+  }
+
+  .AuditGraph-Event {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    overflow: visible;
+
+    // hide `audit_start` and `audit_end` events entirely
+    &.audit_start,
+    &.audit_end {
+      display: none;
+    }
+  }
+
+  .AuditGraph-Event-Line {
+    position: absolute;
+    height: 1px;
+
+    // only audit_issues events are shown
+    &.audit {
+      background-color: $issue_red;
+      width: $audit-col-width;
+    }
+
+    &.vehicle {
+      background-color: green;
+      width: $vehicle-col-width;
+    }
+
+    &.telemetry {
+      background-color: #ccc;
+      width: $telemetry-col-width;
+    }
+  }
+
+  .AuditGraph-Event-Label {
+    cursor: pointer;
+    position: absolute;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    background: white;
+    height: 30px;
+    min-width: 30px;
+    line-height: 20px;
+    top: -15px;
+    border-radius: 15px;
+    white-space: nowrap;
+    text-align: center;
+
+    // only audit_issues events are shown
+    // make 'em stand out a bit more
+    &.audit {
+      border-color: #666;
+      background-color: #ce5540;
+      color: white;
+      font-weight: 900;
+    }
+
+    // only show stubby lines for telemetry
+    &.telemetry {
+      display: none;
+    }
+  }
+
+  // AUDIT COLUMN
+  .AuditGraph-Column.audit {
+    // Space over to account for arrows
+    .SectionHeader {
+      margin-left: 40px;
+    }
+
+    .AuditGraph-Event-Line,
+    .AuditGraph-Event-Distance {
+      right: 0;
+    }
+    .AuditGraph-Event.audit {
+      .AuditGraph-Event-Label {
+        right: $audit-col-width;
+      }
+      .AuditGraph-Event-Line {
+      }
+    }
+
+    .AuditGraph-Event.vehicle {
+      .AuditGraph-Event-Line {
+      }
+      .AuditGraph-Event-Label {
+        right: $vehicle-col-width;
+      }
+    }
+
+    .AuditGraph-Event.telemetry {
+      .AuditGraph-Event-Label {
+      }
+      .AuditGraph-Event-Line {
+      }
+    }
+  }
+
+  // PROVIDER COLUMN
+  .AuditGraph-Column.provider {
+    // Space over to account for arrows
+    .SectionHeader {
+      margin-right: 40px;
+    }
+
+    .AuditGraph-Event-Line {
+      left: 0;
+    }
+
+    .AuditGraph-Event.vehicle {
+      .AuditGraph-Event-Label {
+        left: $vehicle-col-width;
+      }
+      .AuditGraph-Event-Line {
+      }
+    }
+
+    .AuditGraph-Event.telemetry {
+      .AuditGraph-Event-Label {
+      }
+      .AuditGraph-Event-Line {
+      }
+    }
+  }
+
+  .AuditGraph-Deltas {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    // push start time down toward the graph
+    .SectionHeader.startTime {
+      position: relative;
+      top: 30px;
+    }
+
+    // push end time down toward the graph
+    .SectionHeader.endTime {
+      position: relative;
+      top: -10px;
+    }
+  }
+
+  .AuditGraph-Delta {
+    position: absolute;
+    height: 5px;
+    background-color: green;
+    border-radius: 3px;
+    opacity: 0.8;
+  }
+
+  .AuditGraph-Delta.large {
+    background-color: red;
+  }
+}

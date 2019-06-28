@@ -1,0 +1,341 @@
+{
+  "total": 20,
+  "links": {
+    "first": "http://127.0.0.1:52935/vehicles?bbox=[[-118.484776,33.996855],[-118.452283,33.96299]]&provider_id=c8051767-4b14-4794-abc1-85aad48baff1&skip=0&take=1000",
+    "last": "http://127.0.0.1:52935/vehicles?bbox=[[-118.484776,33.996855],[-118.452283,33.96299]]&provider_id=c8051767-4b14-4794-abc1-85aad48baff1&skip=0&take=1000",
+    "prev": null,
+    "next": null
+  },
+  "vehicles": [
+    {
+      "device_id": "d8468f50-e291-4a45-b2a2-21b3cabcf936",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-546295",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2019,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.5264433302361041,
+        "device_id": "d8468f50-e291-4a45-b2a2-21b3cabcf936",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.985969853308085,
+          "lng": -118.46539559467317,
+          "speed": 9,
+          "satellites": null,
+          "heading": 190,
+          "hdop": 2,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "466fabfa-5400-458c-82e6-d52e539dcf23",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-509033",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2019,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.18014815648628277,
+        "device_id": "466fabfa-5400-458c-82e6-d52e539dcf23",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.983819609604815,
+          "lng": -118.46789903911646,
+          "speed": 9,
+          "satellites": null,
+          "heading": 235,
+          "hdop": 3,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "c47ab9c9-3ab9-44ba-93f8-7727dcd06510",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-416272",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2016,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.24208942616207843,
+        "device_id": "c47ab9c9-3ab9-44ba-93f8-7727dcd06510",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98440763073704,
+          "lng": -118.46371719254161,
+          "speed": 9,
+          "satellites": null,
+          "heading": 31,
+          "hdop": 1,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "4a22ea7c-4429-4507-a244-f8181643b775",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-716567",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2019,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.2685060341421114,
+        "device_id": "4a22ea7c-4429-4507-a244-f8181643b775",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98550820027285,
+          "lng": -118.46688346433099,
+          "speed": 9,
+          "satellites": null,
+          "heading": 110,
+          "hdop": 0,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "b4cd947d-2244-4fcb-a686-e11ebd39caf8",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-321747",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2019,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.4549659895992214,
+        "device_id": "b4cd947d-2244-4fcb-a686-e11ebd39caf8",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98238824296614,
+          "lng": -118.46684793709093,
+          "speed": 9,
+          "satellites": null,
+          "heading": 125,
+          "hdop": 0,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "04b546cf-9413-4051-bb6e-6f450f14a138",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-638582",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2018,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.8560736029293325,
+        "device_id": "04b546cf-9413-4051-bb6e-6f450f14a138",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98552069424035,
+          "lng": -118.46467159527225,
+          "speed": 9,
+          "satellites": null,
+          "heading": 102,
+          "hdop": 2,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "c169614f-caae-4ef1-ba15-6d07d11573e5",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-305780",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2017,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.1323055368672817,
+        "device_id": "c169614f-caae-4ef1-ba15-6d07d11573e5",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.984027337866074,
+          "lng": -118.4671593733403,
+          "speed": 9,
+          "satellites": null,
+          "heading": 308,
+          "hdop": 1,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "dda9e0f2-9017-497f-a47d-f33e01c56efc",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-102242",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2018,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.6956207000413972,
+        "device_id": "dda9e0f2-9017-497f-a47d-f33e01c56efc",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98471781819603,
+          "lng": -118.46856799421357,
+          "speed": 9,
+          "satellites": null,
+          "heading": 150,
+          "hdop": 0,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "2fb4073c-0470-41d1-b9f7-7da84551b247",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-107114",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2018,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.7040675811791589,
+        "device_id": "2fb4073c-0470-41d1-b9f7-7da84551b247",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98501069505622,
+          "lng": -118.46558302500422,
+          "speed": 9,
+          "satellites": null,
+          "heading": 350,
+          "hdop": 2,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    },
+    {
+      "device_id": "22272253-2188-477e-ab6c-b6dfbec5f60c",
+      "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+      "vehicle_id": "test-vin-519876",
+      "type": "bicycle",
+      "propulsion": [
+        [
+          "human"
+        ]
+      ],
+      "year": 2018,
+      "mfgr": "Schwinn",
+      "model": "Mantaray",
+      "recorded": 1561675696444,
+      "status": "reserved",
+      "telemetry": {
+        "charge": 0.8641585193498458,
+        "device_id": "22272253-2188-477e-ab6c-b6dfbec5f60c",
+        "provider_id": "c8051767-4b14-4794-abc1-85aad48baff1",
+        "gps": {
+          "lat": 33.98510816762031,
+          "lng": -118.46435820277897,
+          "speed": 9,
+          "satellites": null,
+          "heading": 323,
+          "hdop": 4,
+          "altitude": null
+        },
+        "recorded": 1561675696444,
+        "timestamp": 1561675696444
+      },
+      "updated": 1561675696444
+    }
+  ]
+}
