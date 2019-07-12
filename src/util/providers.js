@@ -14,7 +14,7 @@
     limitations under the License.
  */
 
-import mdsProviders from 'mds-js/packages/mds-providers/mds-providers'
+import { providers as mdsProviders } from 'mds-core/packages/mds-providers'
 import { getConfigPaths } from 'config'
 
 // Use `getConfigPaths` to get values from current config.
@@ -35,7 +35,7 @@ export function getActiveProviders() {
   }, {})
 
   // Add `Test` provider
-  const providers = [...config.activeProviders, 'Test']
+  const providers = [...config.activeProviders, 'Test 1']
   return providers
     .map(providerName => {
       const provider = providersByName[providerName.toLowerCase()]

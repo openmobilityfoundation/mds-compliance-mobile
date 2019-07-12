@@ -1,4 +1,4 @@
-# Compliance Mobile App
+# MDS Compliance Mobile App
 
 ## Purpose / Usage
 
@@ -40,7 +40,7 @@ Before you can run the Compliance Mobile app you must do the following:
 
 You will need to set up the MDS-Audit service to field API requests from the app. For detailed instructions, please see:
 
-- [`mds-audit`](https://github.com/cityOfLosAngeles/mds-js/packages/mds-audit)
+- [`mds-audit`](https://github.com/CityOfLosAngeles/mds-core/tree/master/packages/mds-audit)
 
 ### <a name="auth0">2</a>. Auth0 Account Setup
 
@@ -54,7 +54,7 @@ You will need to set up the MDS-Audit service to field API requests from the app
 - If you do not already have one, [sign up for a free Mapbox account](https://account.mapbox.com/auth/signup/)
 - Find your [mapbox account token](https://account.mapbox.com/access-tokens/): you'll enter it below.
 
-### <a name"agency-specific-config">4</a>. Agency-Specific Configuration Setup
+### <a name="agency-specific-config">4</a>. Agency-Specific Configuration Setup
 
 Configuration has been centralized in the following files:
 
@@ -75,7 +75,7 @@ Note that when setting values as described below, a value entered in `production
 | `apps.compliance.mapbox.token`                | Mapbox account token.
 | `apps.compliance.mapbox.settings.initialZoom` | GPS coordinates for the center of the vehicle map. You might, for example, set this to your agency headquarters or another recognizable landmark.
 | `provider.activeProviders`                    | Case-INsensitive list of names of active mobility service providers for your agency.
-<br/>See `[mds-providers](https://github.com/cityOfLosAngeles/mds-js/packages/mds-providers)` package for the full list.
+|                                               | See [`mds-providers`](https://github.com/CityOfLosAngeles/mds-core/tree/master/packages/mds-providers) package for the full list.
 
 ## Local Development
 
@@ -91,7 +91,7 @@ yarn start
 - Note that the app MUST run under `https` to enable geolocation functionality. The browser will complain that this is unsafe -- just choose "Show Details" and accept the security exception.
 - As you edit source files (including the configuration files mentioned above), the app will quickly re-compile your changes and reload the web browser for you.
 
-## <a name="#production-deployment">Production Deployment</a>
+## <a name="production-deployment">Production Deployment</a>
 
 The app is currently set up to deploy to Amazon S3, but deploying to other services should be similar.
 
@@ -130,7 +130,7 @@ yarn deploy:production
 - Deployment takes a bit of time.
 - Once deployment has finished, navigate to the app in a web browser.
 
-## <a name="#staging-deployment">Staging Deployment</a>
+## <a name="staging-deployment">Staging Deployment</a>
 
 Setting up a staging deployment is virtually the same as production deployment above, except that you'll be editing different configuration files.
 
@@ -164,3 +164,8 @@ yarn deploy:staging
 
 - Deployment takes a bit of time.
 - Once deployment has finished, navigate to the app in a web browser.
+
+
+## Attribution
+
+- City icon by Jonathan Li from the Noun Project
