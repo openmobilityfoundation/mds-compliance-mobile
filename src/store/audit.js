@@ -21,8 +21,6 @@
 // ------------------------------------
 import _ from 'lodash'
 import getUUID from 'uuid/v4'
-import { VEHICLE_EVENTS } from 'mds-js/packages/mds-enums'
-
 import { getConfigPaths } from 'config'
 import { AUDIT_STATE, TELEMETRY_MODE, TELEMETRY_POLICY } from 'constants.js'
 import device from 'device/index'
@@ -243,7 +241,7 @@ const ACTIONS = {
     creator() {
       return dispatch => {
         dispatch({ type: 'startTrip' })
-        dispatch(allActions._addVehicleEvent(AUDIT_STATE.trip_start, VEHICLE_EVENTS.trip_start))
+        dispatch(allActions._addVehicleEvent(AUDIT_STATE.trip_start, "trip_start"))
         dispatch(allActions.watchTelemetry())
       }
     },
@@ -262,7 +260,7 @@ const ACTIONS = {
       return dispatch => {
         dispatch(allActions.stopWatchingTelemetry())
         dispatch({ type: 'endTrip' })
-        dispatch(allActions._addVehicleEvent(AUDIT_STATE.trip_end, VEHICLE_EVENTS.trip_end))
+        dispatch(allActions._addVehicleEvent(AUDIT_STATE.trip_end, "trip_end"))
       }
     },
     handler(audit) {

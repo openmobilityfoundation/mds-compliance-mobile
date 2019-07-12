@@ -12,7 +12,7 @@
     "history": "^4.9.0",
     "lodash": "^4.17.11",
     "mapbox-gl": "^0.53.1",
-    "mds-js": "git+ssh://git@github.com/ellis-assoc/mds-js.git",
+    "mds-core": "github:CityOfLosAngeles/mds-core",
     "memoize-one": "^5.0.4",
     "moment-timezone": "^0.5.23",
     "prop-types": "^15.7.2",
