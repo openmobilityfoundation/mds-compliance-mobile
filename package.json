@@ -28,6 +28,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
+    "prepare": "cd node_modules/mds-core && yarn && yarn build && cd ../..",
     "start": "REACT_APP_GIT_SHA=`git rev-parse --short HEAD` react-scripts start",
     "deploy:staging": "env-cmd .env.staging yarn run _deploy",
     "deploy:production": "env-cmd .env.production yarn run _deploy",
