@@ -6597,7 +6597,7 @@ mdn-data@~1.1.0:
 
 "mds-core@github:CityOfLosAngeles/mds-core":
   version "0.0.0"
-  resolved "https://codeload.github.com/CityOfLosAngeles/mds-core/tar.gz/430f56dc0c4953dbbb57a9c238638c02d0030806"
+  resolved "https://codeload.github.com/CityOfLosAngeles/mds-core/tar.gz/847a2a70b00d8f8d5b7d099686deec58be70f018"
 
 media-typer@0.3.0:
   version "0.3.0"
