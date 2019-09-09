@@ -27,6 +27,7 @@ const config = getConfigPaths({
 
   auth0ClientId: 'authentication.auth0.clientId',
   auth0Domain: 'authentication.auth0.domain',
+  auth0Audience: 'authentication.auth0.audience',
   auth0LogoPath: 'authentication.auth0.logoPath'
 })
 
@@ -40,7 +41,8 @@ const options = {
     responseType: 'token id_token',
     params: {
       scope: 'openid profile email'
-    }
+    },
+    audience: config.auth0Audience
   },
   theme: {
     logo: `${process.env.PUBLIC_URL}${config.auth0LogoPath}`,
