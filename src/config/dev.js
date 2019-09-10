@@ -39,7 +39,7 @@ const devOverrides = {
       //       add its clientId here.
       // clientId: undefined,
       clientId: 'sgsSRcN9PLQhzseYH9cmrYDtp5NxC9s1',
-      audience: 'https://api.ladot.io/'
+      audience: 'https://sandbox.ladot.io'
     }
   },
 
