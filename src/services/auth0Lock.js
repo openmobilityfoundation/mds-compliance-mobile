@@ -40,7 +40,7 @@ const options = {
     redirectUrl: config.appUrl,
     responseType: 'token id_token',
     params: {
-      scope: 'openid profile email'
+      scope: 'openid profile email audits:read audits:write vehicles:read'
     },
     audience: config.auth0Audience
   },

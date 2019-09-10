@@ -102,7 +102,7 @@ const ACTIONS = {
           list: undefined
         })
 
-        return getAuditReportList(auth.idToken, listFilter)
+        return getAuditReportList(auth.accessToken, listFilter)
           .then(result =>
             dispatch({
               type: 'loadAuditReportList',
@@ -146,7 +146,7 @@ const ACTIONS = {
         dispatch({ type: 'loadReport', auditTripId, report: LOAD_STATE.loading })
 
         // eslint-disable-next-line consistent-return
-        return getAuditReport(auditTripId, auth.idToken)
+        return getAuditReport(auditTripId, auth.accessToken)
           .then(rawReport => {
             try {
               const report = new AuditReport(rawReport)
@@ -185,7 +185,7 @@ const ACTIONS = {
       return (dispatch, getState) => {
         const { auth } = getState()
         // Start the delete but don't wait for it
-        deleteAuditReport(auditTripId, auth.idToken)
+        deleteAuditReport(auditTripId, auth.accessToken)
           // eslint-disable-next-line no-console
           .then(result => console.info('Deleted report', result))
           // eslint-disable-next-line no-console

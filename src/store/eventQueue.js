@@ -183,7 +183,7 @@ const ACTIONS = {
     creator(eventId) {
       return (dispatch, getState) => {
         const { auth, eventQueue } = getState()
-        const { idToken } = auth
+        const { accessToken } = auth
         const { queue } = eventQueue
         const event = queue.find(e => e.eventId === eventId)
         if (!event) throw new TypeError(`eventQueue.dispatchEvent(): can't find event ${eventId}`)
@@ -200,7 +200,7 @@ const ACTIONS = {
         }
 
         // Make the call, then dispatch `eventDispatched` or `eventDispatchError` when it finishes
-        return apiHandler(event, idToken)
+        return apiHandler(event, accessToken)
           .then(result => dispatch(allActions.eventDispatched(eventId, result)))
           .catch(error => {
             // If we got a network status error, go offline

@@ -51,10 +51,10 @@ export function getEventURL(event) {
 }
 
 // Send `event` to the `audit/...` endpoint.
-export function sendAuditEvent(event, idToken) {
+export function sendAuditEvent(event, accessToken) {
   return POST({
     url: getEventURL(event),
-    idToken,
+    accessToken,
     data: event.params,
     responseType: RESPONSE_TYPES.text,
     errorResponseType: RESPONSE_TYPES.json
@@ -62,10 +62,10 @@ export function sendAuditEvent(event, idToken) {
 }
 
 // Send `event` to the `vehicle/.../event` endpoint.
-export function sendVehicleEvent(event, idToken) {
+export function sendVehicleEvent(event, accessToken) {
   return POST({
     url: getEventURL(event),
-    idToken,
+    accessToken,
     data: event.params,
     responseType: RESPONSE_TYPES.json,
     errorResponseType: RESPONSE_TYPES.json
@@ -73,10 +73,10 @@ export function sendVehicleEvent(event, idToken) {
 }
 
 // Send `event` to the `vehicle/telemetry` endpoint.
-export function sendTelemetryEvent(event, idToken) {
+export function sendTelemetryEvent(event, accessToken) {
   return POST({
     url: getEventURL(event),
-    idToken,
+    accessToken,
     data: event.params,
     responseType: RESPONSE_TYPES.json,
     errorResponseType: RESPONSE_TYPES.json
@@ -84,30 +84,30 @@ export function sendTelemetryEvent(event, idToken) {
 }
 
 // Return list of audits.
-export function getAuditReportList(idToken, listParams) {
+export function getAuditReportList(accessToken, listParams) {
   return GET({
     url: `${config.auditEndpoint}/trips${encodeQueryParams(listParams)}`,
-    idToken,
+    accessToken,
     responseType: RESPONSE_TYPES.json,
     errorResponseType: RESPONSE_TYPES.json
   })
 }
 
 // Return data for a particular audit
-export function getAuditReport(auditTripId, idToken) {
+export function getAuditReport(auditTripId, accessToken) {
   return GET({
     url: `${config.auditEndpoint}/trips/${auditTripId}`,
-    idToken,
+    accessToken,
     responseType: RESPONSE_TYPES.json,
     errorResponseType: RESPONSE_TYPES.json
   })
 }
 
 // Delete an audit
-export function deleteAuditReport(auditTripId, idToken) {
+export function deleteAuditReport(auditTripId, accessToken) {
   return DELETE({
     url: `${config.auditEndpoint}/trips/${auditTripId}`,
-    idToken,
+    accessToken,
     responseType: RESPONSE_TYPES.text,
     errorResponseType: RESPONSE_TYPES.text
   })
@@ -115,13 +115,13 @@ export function deleteAuditReport(auditTripId, idToken) {
 
 // Return vehicles data for `bbox` (bounding box as string)
 // and optional `providerId`
-export async function getVehicles(bbox, providerId, idToken) {
-//  return (await import('./vehicles-sample.json')).default
+export async function getVehicles(bbox, providerId, accessToken) {
+  //  return (await import('./vehicles-sample.json')).default
   const url = `${config.auditEndpoint}/vehicles?bbox=${bbox}${providerId ? `&provider_id=${providerId}` : ''}`
-console.warn(url);
+  console.warn(url)
   return GET({
     url,
-    idToken,
+    accessToken,
     responseType: RESPONSE_TYPES.json,
     errorResponseType: RESPONSE_TYPES.text
   })
