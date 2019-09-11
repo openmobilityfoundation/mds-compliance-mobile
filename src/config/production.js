@@ -127,7 +127,7 @@ export default {
     // Settings for auth0 authentication.
     auth0: {
       // Domain server.
-      domain: 'ladot.auth0.com',
+      domain: 'auth.ladot.io',
       // Client id for this application.
       // NOTE: You will likely override this in `config/dev.js` and `config/staging.js`
       clientId: 'GnOZN4A6qGgM3xHCTa8sgoDjwFq41m3T',

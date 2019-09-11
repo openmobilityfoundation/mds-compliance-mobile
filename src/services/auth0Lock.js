@@ -31,7 +31,12 @@ const config = getConfigPaths({
   auth0LogoPath: 'authentication.auth0.logoPath'
 })
 
+/**
+ * configurationBaseUrl - supports use of custom domain with embedded Lock widget
+ * redirect - false to force popup for better mobile experience
+ */
 const options = {
+  configurationBaseUrl: 'https://cdn.auth0.com',
   allowAutocomplete: true,
   autoclose: true,
   autofocus: true,
@@ -40,7 +45,7 @@ const options = {
     redirectUrl: config.appUrl,
     responseType: 'token id_token',
     params: {
-      scope: 'openid profile email audits:read audits:write vehicles:read'
+      scope: 'openid profile email'
     },
     audience: config.auth0Audience
   },

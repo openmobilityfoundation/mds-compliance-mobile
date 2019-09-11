@@ -52,7 +52,7 @@ const devOverrides = {
     // override here if it's the same for all developers,
     // or set `REACT_APP_MDS_AUDIT_ENDPOINT` in file `.env.development.local`
     // (which is not checked in) if override is just for your server.
-    audit: process.env.REACT_APP_MDS_AUDIT_ENDPOINT || 'https://api.dev.mdscompliance.app/audit'
+    audit: process.env.REACT_APP_MDS_AUDIT_ENDPOINT || 'https://develop.mds-testing.info/audit'
     //     audit: process.env.REACT_APP_MDS_AUDIT_ENDPOINT || 'http://localhost:4002/audit',
   }
 }
