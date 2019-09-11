@@ -37,41 +37,41 @@ export const RESPONSE_TYPES = {
 
 // Perform a generic `GET`
 // See `FETCH()` below for parameter definition.
-export function GET({ url, fetchParams = {}, responseType, errorResponseType, idToken }) {
+export function GET({ url, fetchParams = {}, responseType, errorResponseType, accessToken }) {
   fetchParams = {
     method: 'GET',
     ...fetchParams
   }
-  return FETCH({ url, fetchParams, responseType, errorResponseType, idToken })
+  return FETCH({ url, fetchParams, responseType, errorResponseType, accessToken })
 }
 
 // Perform a generic 'POST'
 // `data` is object of body params (will be stringified automatically).
 // See `FETCH()` below for parameter definition.
-export function POST({ url, data, fetchParams = {}, responseType, errorResponseType, idToken }) {
+export function POST({ url, data, fetchParams = {}, responseType, errorResponseType, accessToken }) {
   fetchParams = {
     method: 'POST',
     ...fetchParams
   }
   if (data) fetchParams.body = JSON.stringify(data)
-  return FETCH({ url, fetchParams, responseType, errorResponseType, idToken })
+  return FETCH({ url, fetchParams, responseType, errorResponseType, accessToken })
 }
 
 // Perform a generic 'DELETE'
 // See `FETCH()` below for parameter definition.
-export function DELETE({ url, fetchParams = {}, responseType, errorResponseType, idToken }) {
+export function DELETE({ url, fetchParams = {}, responseType, errorResponseType, accessToken }) {
   fetchParams = {
     method: 'DELETE',
     ...fetchParams
   }
-  return FETCH({ url, fetchParams, responseType, errorResponseType, idToken })
+  return FETCH({ url, fetchParams, responseType, errorResponseType, accessToken })
 }
 
 // Perform a `fetch()`, rejecting if there's a (server or network) error.
 //
 // `url` (required) should have any query params already attached.
 // `fetchParams` (optional) params to pass in to `fetch()`.
-// `idToken` is Auth0 "bearer token"
+// `accessToken` is Auth0 "bearer token"
 // `responseType` is data type used to transform successful fetch response.
 // `errorResponseType` is data type used to transform error fetch response.
 //
@@ -83,7 +83,7 @@ export function DELETE({ url, fetchParams = {}, responseType, errorResponseType,
 export async function FETCH(params) {
   const {
     url,
-    idToken,
+    accessToken,
     fetchParams = {},
     responseType = RESPONSE_TYPES.text,
     errorResponseType = RESPONSE_TYPES.json
@@ -92,9 +92,9 @@ export async function FETCH(params) {
   if (!url) throw new TypeError('FETCH must be called with params.url')
 
   // Set up authorization headers
-  if (!idToken) throw new TypeError('FETCH must be called with params.idToken')
+  if (!accessToken) throw new TypeError('FETCH must be called with params.accessToken')
   fetchParams.headers = {
-    Authorization: `Bearer ${idToken}`,
+    Authorization: `Bearer ${accessToken}`,
     'Content-Type': 'application/json'
   }
 

@@ -127,12 +127,13 @@ export default {
     // Settings for auth0 authentication.
     auth0: {
       // Domain server.
-      domain: 'ladot.auth0.com',
+      domain: 'auth.ladot.io',
       // Client id for this application.
       // NOTE: You will likely override this in `config/dev.js` and `config/staging.js`
       clientId: 'GnOZN4A6qGgM3xHCTa8sgoDjwFq41m3T',
       // Path under `public` for logo to display during auth0 login.
       // Ideally an SVG with transparent background, a PNG will work as well.
+      audience: 'https://api.ladot.io/',
       logoPath: 'agency/images/logo_vector.svg'
     }
   },
@@ -146,6 +147,6 @@ export default {
 
   // URLs for MDS server endpoints used in this application
   serverEndpoints: {
-    audit: 'https://api.ladot.io/audit',
+    audit: 'https://api.ladot.io/audit'
   }
 }

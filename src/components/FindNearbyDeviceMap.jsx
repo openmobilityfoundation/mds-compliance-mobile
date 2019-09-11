@@ -157,12 +157,12 @@ class FindNearbyDeviceMap extends React.Component {
   getVehicles = async () => {
     const {
       providerId,
-      auth: { idToken }
+      auth: { accessToken }
     } = this.props
     const bbox = this.bbox && JSON.stringify(this.bbox.toArray())
     if (!bbox) return
 
-    const response = await getVehicles(bbox, providerId, idToken)
+    const response = await getVehicles(bbox, providerId, accessToken)
     if (!response || !response.vehicles || this.unmounted) return
 
     this.setState({ vehicles: response.vehicles })
