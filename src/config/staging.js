@@ -38,7 +38,8 @@ const stagingOverrides = {
       // NOTE: If you have a separate Auth0 app for dev (vs production)
       //       add its clientId here.
       // clientId: undefined,
-      clientId: 'sgsSRcN9PLQhzseYH9cmrYDtp5NxC9s1'
+      clientId: 'sgsSRcN9PLQhzseYH9cmrYDtp5NxC9s1',
+      audience: 'https://develop.mds-testing.info/'
     }
   },
 
@@ -50,7 +51,7 @@ const stagingOverrides = {
   },
 
   serverEndpoints: {
-    audit: 'https://api.dev.mdscompliance.app/audit',
+    audit: 'https://develop.mds-testing.info/audit'
   }
 }
 
