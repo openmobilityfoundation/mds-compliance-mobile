@@ -117,7 +117,9 @@ export function deleteAuditReport(auditTripId, accessToken) {
 // and optional `providerId`
 export async function getVehicles(bbox, providerId, accessToken) {
   //  return (await import('./vehicles-sample.json')).default
-  const url = `${config.auditEndpoint}/vehicles?bbox=${bbox}${providerId ? `&provider_id=${providerId}` : ''}`
+  const url = `${config.auditEndpoint}/vehicles?take=100000&bbox=${bbox}${
+    providerId ? `&provider_id=${providerId}` : ''
+  }`
   console.warn(url)
   return GET({
     url,

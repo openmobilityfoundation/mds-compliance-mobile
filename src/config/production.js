@@ -87,7 +87,7 @@ export default {
         },
         map: {
           // (msec) Frequency to fetch vehicle status data on map page
-          deviceFetchFrequency: 5000
+          deviceFetchFrequency: 10000
         }
       },
       // Audit report thresholds:
