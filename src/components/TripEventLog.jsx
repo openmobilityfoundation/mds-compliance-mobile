@@ -22,6 +22,14 @@ import { AUDIT_STATE, QUEUE_STATE } from 'constants.js'
 import { withAudit } from 'store/index'
 import { printTime } from 'util/time'
 
+import {
+  radioButtonOff as radioButtonOffIcon,
+  cloudCircle as cloudCircleIcon,
+  happy as happyIcon,
+  locate as locateIcon,
+  alert as alertIcon
+} from 'ionicons/icons'
+
 import EventLocationLink from './EventLocationLink'
 import { getEventLabel, getIssueTitle } from './labels'
 import './TripEventLog.scss'
@@ -30,19 +38,19 @@ function statusIcon(event) {
   const { status } = event
   switch (status) {
     case QUEUE_STATE.ready:
-      return 'md-radio-button-off'
+      return radioButtonOffIcon.md
     case QUEUE_STATE.telemetry:
-      return 'md-locate'
+      return locateIcon.md
     case QUEUE_STATE.in_flight:
-      return 'md-cloud-circle'
+      return cloudCircleIcon.md
     case QUEUE_STATE.submitted:
-      return 'md-happy'
+      return happyIcon.md
     case QUEUE_STATE.skipped:
-      return 'md-locate'
+      return locateIcon.md
     case QUEUE_STATE.error:
-      return 'md-alert'
+      return alertIcon.md
     default:
-      return 'none' // Will see this for pre-loaded trip.
+      return null // Will see this for pre-loaded trip.
   }
 }
 
@@ -52,7 +60,7 @@ export function EventRow({ event }) {
     <IonRow data-event={event.eventId} class={`eventRow ${event.status} ellipsized hydrated`}>
       {event.status === 'skipped' && <IonCol size='12' class='strikethrough hydrated' />}
       <IonCol size='7' size-sm='7' size-md='6' class='ellipsized hydrated'>
-        <IonIcon name={statusIcon(event)} />
+        <IonIcon icon={statusIcon(event)} />
         <span className='timestamp'>{printTime(event.params.timestamp || event.timestamp)}</span>
         <span className='event'>{getEventLabel(event)}</span>
       </IonCol>
@@ -78,11 +86,11 @@ EventRow.propTypes = {
 // Pre-load icons to avoid visual bugs when browser goes offline.
 const ICON_LOADER = (
   <div style={{ width: 0, height: 0, overflow: 'hidden' }}>
-    <IonIcon name='md-radio-button-off' />
-    <IonIcon name='md-locate' />
-    <IonIcon name='md-cloud-circle' />
-    <IonIcon name='md-happy' />
-    <IonIcon name='md-alert' />
+    <IonIcon icon={radioButtonOffIcon.md} />
+    <IonIcon icon={locateIcon.md} />
+    <IonIcon icon={cloudCircleIcon.md} />
+    <IonIcon icon={happyIcon.md} />
+    <IonIcon icon={alertIcon.md} />
   </div>
 )
 

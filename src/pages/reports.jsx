@@ -32,6 +32,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
+import { arrowBack as arrowBackIcon, arrowForward as arrowForwardIcon } from 'ionicons/icons'
 
 import { withReports } from 'store/index'
 
@@ -122,10 +123,10 @@ class _ReportsPage extends React.Component {
               </IonButtons>
               <IonButtons slot='secondary'>
                 <IonButton key={`${selectedTripId}-prev`} color='secondary' onClick={showPrev} disabled={!showPrev}>
-                  <IonIcon name='arrow-back' />
+                  <IonIcon icon={arrowBackIcon} />
                 </IonButton>
                 <IonButton key={`${selectedTripId}-next`} color='secondary' onClick={showNext} disabled={!showNext}>
-                  <IonIcon name='arrow-forward' />
+                  <IonIcon icon={arrowForwardIcon} />
                 </IonButton>
               </IonButtons>
               <IonTitle>Audit Report</IonTitle>

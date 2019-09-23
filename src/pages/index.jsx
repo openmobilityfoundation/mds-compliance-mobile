@@ -26,11 +26,13 @@ import MapPage from 'pages/map'
 import AuditPage from 'pages/audits'
 import ReportsPage from 'pages/reports'
 
+import { bicycle as bicycleIcon, filing as filingIcon, map as mapIcon } from 'ionicons/icons'
+
 // Map all pages for menu
 export const pages = [
-  { title: 'Map', path: '/map', icon: 'map' },
-  { title: 'Audit', path: '/', icon: 'bicycle' },
-  { title: 'Reports', path: '/reports', icon: 'filing' }
+  { title: 'Map', path: '/map', icon: mapIcon },
+  { title: 'Audit', path: '/', icon: bicycleIcon },
+  { title: 'Reports', path: '/reports', icon: filingIcon }
 ]
 
 // Routes, nested inside an `IonPage
