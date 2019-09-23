@@ -81,7 +81,7 @@ export function _AuditReportList({ actions, reports }) {
   // Load list once with `effect` hook, updating whenever `listFilter` changes.
   useEffect(() => {
     actions.loadAuditReportList()
-  }, [listFilter])
+  }, [actions, listFilter])
 
   if (reports.list && reports.list.length) {
     return (

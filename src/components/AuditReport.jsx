@@ -35,13 +35,12 @@ import SectionHeader from 'components/SectionHeader'
 import './AuditReport.scss'
 
 export function _AuditReport({ auditTripId, actions, page, reports }) {
-  if (!auditTripId) return null
-
   // Load data in a hook but don't wait for it, we'll pull it from redux once it comes in
   useEffect(() => {
-    actions.loadReport(auditTripId)
-  }, [auditTripId])
+    if (auditTripId) actions.loadReport(auditTripId)
+  }, [actions, auditTripId])
 
+  if (!auditTripId) return null
   const report = reports.reports[auditTripId]
   let details
   switch (report) {
