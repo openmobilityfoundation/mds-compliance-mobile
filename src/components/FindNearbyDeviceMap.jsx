@@ -23,6 +23,7 @@ import { withAuth } from 'store/index'
 import { getVehicles } from 'services/api'
 import { vehiclesToPoints } from 'util/geo'
 
+import './FindNearbyDeviceMap.scss'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 // Get config data we'll use below.  Throws if path values are undefined.
@@ -93,18 +94,22 @@ class FindNearbyDeviceMap extends React.Component {
     )
 
     this.map.on('load', this.onMapLoad)
+    this.initiallyResized = false
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (!this.state.mapLoaded) return
-
+    if (!this.initiallyResized) {
+      this.initiallyResized = true
+      this.map.resize()
+    }
     if (
       !this.vehiclesLoaded ||
       this.state.vehicles !== prevState.vehicles ||
       this.props.providerId !== prevProps.providerId
     ) {
       // Filter by providerId if necessary
-      let { vehicles } = this.state
+      const { vehicles } = this.state
       // convert to featureCollection to pass into map
       const featureCollection = vehicles && vehiclesToPoints(vehicles)
       this.map.getSource('devices').setData(featureCollection)
@@ -386,8 +391,9 @@ class FindNearbyDeviceMap extends React.Component {
   static style = {
     position: 'relative',
     overflow: 'hidden',
-    height: 'calc(100vh - 56px)',
-    width: '100%'
+    height: 'calc(100vh - 112px)',
+    width: '100%',
+    border: '1px solid red'
   }
 
   render() {
