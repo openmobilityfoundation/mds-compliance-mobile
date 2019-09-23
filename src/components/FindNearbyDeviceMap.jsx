@@ -392,8 +392,7 @@ class FindNearbyDeviceMap extends React.Component {
     position: 'relative',
     overflow: 'hidden',
     height: 'calc(100vh - 112px)',
-    width: '100%',
-    border: '1px solid red'
+    width: '100%'
   }
 
   render() {
