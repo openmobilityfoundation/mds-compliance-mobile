@@ -17,7 +17,7 @@
 // ------------------------------------
 // Auth0 `Lock` to show lock UI
 // ------------------------------------
-import Auth0Lock from 'auth0-lock'
+import * as auth0js from 'auth0-js'
 import { getConfigPaths } from 'config'
 
 // Get config data we'll use below.  Throws if path values are undefined.
@@ -31,33 +31,13 @@ const config = getConfigPaths({
   auth0LogoPath: 'authentication.auth0.logoPath'
 })
 
-/**
- * configurationBaseUrl - supports use of custom domain with embedded Lock widget
- * redirect - false to force popup for better mobile experience
- */
-const options = {
-  configurationBaseUrl: 'https://cdn.auth0.com',
-  allowAutocomplete: true,
-  autoclose: true,
-  autofocus: true,
-  auth: {
-    redirect: false,
-    redirectUrl: config.appUrl,
-    responseType: 'token id_token',
-    params: {
-      scope: 'openid profile email audits:read audits:write audits:delete audits:vehicles:read'
-    },
-    audience: config.auth0Audience
-  },
-  theme: {
-    logo: `${process.env.PUBLIC_URL}${config.auth0LogoPath}`,
-    primaryColor: 'black'
-  },
-  languageDictionary: {
-    title: config.appName
-  }
-}
+const auth0 = new auth0js.WebAuth({
+  domain: config.auth0Domain,
+  clientID: config.auth0ClientId,
+  redirectUri: config.appUrl,
+  responseType: 'token id_token',
+  scope: 'openid profile email audits:read audits:write audits:delete audits:vehicles:read',
+  audience: config.auth0Audience
+})
 
-// Export lock widget, pass to `<AuthLock>` component
-const lock = new Auth0Lock(config.auth0ClientId, config.auth0Domain, options)
-export default lock
+export default auth0

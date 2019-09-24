@@ -19,13 +19,15 @@
 // NOTE: the presence of `compliance` in `config` below makes this file app-specific!
 // ------------------------------------
 import { getConfigPaths } from 'config'
-import auth0Lock from 'services/auth0Lock'
+import auth0 from 'services/auth0'
+import { push } from 'connected-react-router'
 
 import { createReducer, getActionCreators, connectComponent } from './store_utils'
 import { actions as allActions } from './index'
 
 const config = getConfigPaths({
-  appUrl: 'apps.compliance.app.url'
+  appUrl: 'apps.compliance.app.url',
+  auth0ClientId: 'authentication.auth0.clientId'
 })
 
 // ------------------------------------
@@ -50,12 +52,29 @@ const INITIAL_STATE = {
 const ACTIONS = {
   saveAuth: {
     creator(authState) {
-      return { type: 'saveAuth', authState }
+      return dispatch => {
+        dispatch({ type: 'saveAuth', authState })
+        dispatch(push('/'))
+      }
     },
     handler(state, { authState }) {
       return {
         ...state,
         ...authState
+      }
+    }
+  },
+  failAuth: {
+    creator() {
+      return dispatch => {
+        console.warn('Auth error', err)
+        dispatch({ type: 'failAuth' })
+      }
+    },
+    handler() {
+      // clear auth state
+      return {
+        ...INITIAL_STATE
       }
     }
   },
@@ -65,7 +84,8 @@ const ACTIONS = {
         // clear localStorage (also used by other domains to clear themselves)
         dispatch({ type: 'logout' })
         // Actually log out
-        auth0Lock.logout({
+        auth0.logout({
+          clientID: config.auth0ClientId,
           returnTo: config.appUrl
         })
       }
