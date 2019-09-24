@@ -6,7 +6,7 @@
   "dependencies": {
     "@ionic/react": "^4.9.0-rc.2",
     "@turf/helpers": "^6.1.4",
-    "auth0-lock": "^11.14.1",
+    "auth0-js": "9.11.3",
     "cheap-ruler": "^2.5.1",
     "connected-react-router": "^6.3.2",
     "history": "^4.9.0",

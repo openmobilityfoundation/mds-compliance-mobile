@@ -15,7 +15,7 @@
  */
 
 // ------------------------------------
-// Auth0 `Lock` to show lock UI
+// Auth0.js client - singleton export that is instantiated once and can be imported and used throughout an app
 // ------------------------------------
 import * as auth0js from 'auth0-js'
 import { getConfigPaths } from 'config'

@@ -17,8 +17,6 @@
 // ------------------------------------
 //  <AuthLock/> component
 //  Wraps the <App/> so they can't do anything at all when not authenticated.
-//  NOTE: you MUST pass a `lock` created with `Auth0Lock`,
-//  the normal pattern is to get `lock` exported from `store/auth.js`.
 // ------------------------------------
 
 import React from 'react'
