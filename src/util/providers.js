@@ -14,11 +14,12 @@
     limitations under the License.
  */
 
-//import { providers as mdsProviders } from 'mds-core/packages/mds-providers'
+import { providers as mdsProviders } from 'mds-core/packages/mds-providers'
 import { getConfigPaths } from 'config'
 
 // HACK HACK HACK
 // Hard-code providers for the nonce to avoid mds typescript compiling...
+/*
 const mdsProviders = [
   {
     "id": "2411d395-04f2-47c9-ab66-d09e9e3c3251",
@@ -68,6 +69,7 @@ const mdsProviders = [
     "provider_name": "Test 1"
   }
 ]
+*/
 
 // Use `getConfigPaths` to get values from current config.
 // This will throw if any paths are not defined.

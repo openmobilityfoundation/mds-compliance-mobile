@@ -13,6 +13,7 @@
     "ionicons": "^4.6.3",
     "lodash": "^4.17.14",
     "mapbox-gl": "^0.53.1",
+    "mds-core": "git+ssh://git@github.com:CityOfLosAngeles/mds-core#@mds-core/mds-providers@0.1.5",
     "memoize-one": "^5.0.4",
     "moment-timezone": "^0.5.23",
     "prop-types": "^15.7.2",
@@ -37,7 +38,8 @@
     "prettier": "^1.18.2"
   },
   "scripts": {
-    "prepare": "cd node_modules/mds-core && yarn && yarn build && cd ../..",
+    "postinstall": "yarn build:deps",
+    "build:deps": "cd node_modules/mds-core && yarn && yarn build && cd ../..",
     "start": "REACT_APP_GIT_SHA=`git rev-parse --short HEAD` react-scripts start",
     "build:staging": "env-cmd .env.staging yarn run _build",
     "build:production": "env-cmd .env.production yarn run _build",
