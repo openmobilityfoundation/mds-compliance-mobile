@@ -19,6 +19,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPopover, IonTitle, IonToolbar } from '@ionic/react'
+import { close as closeIcon } from 'ionicons/icons'
 import './PopoverContainer.scss'
 
 export default class PopoverContainer extends React.Component {
@@ -48,7 +49,7 @@ export default class PopoverContainer extends React.Component {
               <IonTitle>{title}</IonTitle>
               <IonButtons slot='end'>
                 <IonButton onClick={this.hide}>
-                  <IonIcon name='close' />
+                  <IonIcon icon={closeIcon} />
                 </IonButton>
               </IonButtons>
             </IonToolbar>

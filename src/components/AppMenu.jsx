@@ -31,6 +31,13 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
+import {
+  fingerPrint as fingerPrintIcon,
+  locate as locateIcon,
+  logOut as logOutIcon,
+  refresh as refreshIcon,
+  thunderstorm as thunderstormIcon
+} from 'ionicons/icons'
 
 import { getConfigPaths } from 'config'
 import { TELEMETRY_MODE } from 'constants.js'
@@ -45,16 +52,20 @@ const config = getConfigPaths({
   env: '_env',
   version: 'apps.compliance.app.version'
 })
-
-export function ActionMenuItem(handler, title, icon = null) {
+export function AppMenuItem({ title, handler = Function.prototype, icon }) {
   return (
     <IonMenuToggle key={title} auto-hide='false'>
-      <IonItem button onClick={() => handler()}>
-        {icon && <IonIcon slot='start' name={icon} />}
+      <IonItem button onClick={handler}>
+        {icon && <IonIcon slot='start' icon={icon} />}
         <IonLabel>{title}</IonLabel>
       </IonItem>
     </IonMenuToggle>
   )
+}
+AppMenuItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  handler: PropTypes.func,
+  icon: PropTypes.any
 }
 
 // Export unwrapped for testing.
@@ -70,31 +81,21 @@ class Menu extends React.Component {
     super(...args)
     const { history, actions } = this.props
 
-    function resetApp() {
+    this.logout = () => {
+      actions.logOut()
+    }
+    this.resetApp = () => {
       actions.resetAudit()
       actions.resetEventQueue()
     }
-
-    function reloadApp() {
+    this.reloadApp = () => {
       window.location.reload()
     }
 
     // Create `pages` menu items
     this.pages = pages.map(page => (
-      <IonMenuToggle key={page.title} auto-hide='false'>
-        <IonItem button onClick={() => history.push(page.path)}>
-          <IonIcon slot='start' name={page.icon} />
-          <IonLabel>{page.title}</IonLabel>
-        </IonItem>
-      </IonMenuToggle>
+      <AppMenuItem key={page.title} title={page.title} handler={() => history.push(page.path)} icon={page.icon} />
     ))
-
-    // Create `actions` debug menu items
-    this.actions = {
-      logout: ActionMenuItem(actions.logout, 'Log Out', 'log-out'),
-      resetAppData: ActionMenuItem(resetApp, 'Reset App Data', 'thunderstorm'),
-      reloadApp: ActionMenuItem(reloadApp, 'Reload App', 'refresh')
-    }
 
     this.onTelemetryChanged = event => {
       const mode = event.target.value
@@ -103,7 +104,7 @@ class Menu extends React.Component {
   }
 
   render() {
-    const { audit } = this.props
+    const { actions, audit } = this.props
     return (
       <IonMenu id='AppMenu' contentId='main'>
         <IonHeader>
@@ -115,9 +116,9 @@ class Menu extends React.Component {
           <IonList>{this.pages}</IonList>
           <IonList>
             <IonListHeader>Settings</IonListHeader>
-            {this.actions.logout}
+            <AppMenuItem handler={actions.logout} title='Log Out' icon={logOutIcon} />
             <IonItem>
-              <IonIcon slot='start' name='locate' />
+              <IonIcon slot='start' icon={locateIcon} />
               <IonSelect interface='action-sheet' value={audit.telemetryMode} onIonChange={this.onTelemetryChanged}>
                 <IonSelectOption value={TELEMETRY_MODE.timer}>
                   Telemetry: {getTelemetryModeLabel(TELEMETRY_MODE.timer)}
@@ -130,19 +131,9 @@ class Menu extends React.Component {
           </IonList>
           <IonList>
             <IonListHeader>Debug</IonListHeader>
-            {this.actions.reloadApp}
-            {this.actions.resetAppData}
-            <IonItem>
-              <IonIcon slot='start' name='finger-print' />
-              <IonLabel>
-                {'Build: '}
-                {config.version}
-                {' - '}
-                {config.env}
-                {' - '}
-                {config.build}
-              </IonLabel>
-            </IonItem>
+            <AppMenuItem handler={this.reloadApp} title='Reload App' icon={refreshIcon} />
+            <AppMenuItem handler={this.resetApp} title='Reset App Data' icon={thunderstormIcon} />
+            <AppMenuItem title={`Build: ${config.version} - ${config.env} - ${config.build}`} icon={fingerPrintIcon} />
           </IonList>
         </IonContent>
       </IonMenu>

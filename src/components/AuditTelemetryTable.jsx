@@ -16,12 +16,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  IonCol,
-  IonGrid,
-  //  IonIcon,
-  IonRow
-} from '@ionic/react'
+import { IonCol, IonGrid, IonRow } from '@ionic/react'
 
 import { withReports } from 'store/index'
 import { printTime } from 'util/time'
