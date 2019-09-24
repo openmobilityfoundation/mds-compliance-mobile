@@ -31,8 +31,7 @@ class AuthLock extends React.Component {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    lock: PropTypes.object.isRequired
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
   }
 
   componentDidMount() {

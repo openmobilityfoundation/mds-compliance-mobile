@@ -67,7 +67,6 @@ const ACTIONS = {
   failAuth: {
     creator() {
       return dispatch => {
-        console.warn('Auth error', err)
         dispatch({ type: 'failAuth' })
       }
     },

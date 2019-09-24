@@ -23,7 +23,6 @@ import appConfig, { getConfigPaths } from 'config'
 import AuthLock from 'components/AuthLock'
 import device from 'device/index'
 import { actions, history, store } from 'store/index'
-import auth0 from 'services/auth0'
 
 import * as serviceWorker from './serviceWorker'
 import App from './App'
@@ -51,7 +50,7 @@ device.onReady(() => {
 
   ReactDOM.render(
     <Provider store={store}>
-      <AuthLock auth={auth0}>
+      <AuthLock>
         <ConnectedRouter history={history}>
           <App />
         </ConnectedRouter>
