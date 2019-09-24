@@ -17,66 +17,67 @@
 // ------------------------------------
 //  <AuthLock/> component
 //  Wraps the <App/> so they can't do anything at all when not authenticated.
-//  NOTE: you MUST pass a `lock` created with `Auth0Lock`,
-//  the normal pattern is to get `lock` exported from `store/auth.js`.
 // ------------------------------------
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import auth0 from 'services/auth0'
 
 import { withAuth } from 'store/index'
-import './AuthLock.scss'
 
 class AuthLock extends React.Component {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    lock: PropTypes.object.isRequired
-  }
-
-  constructor(props) {
-    super(props)
-    this.props.lock.on('authenticated', this.startLogin)
-    this.props.lock.on('authorization_error', this.authError)
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
   }
 
   componentDidMount() {
-    this.check(this.props)
+    this.checkAuth(this.props)
   }
 
-  componentDidUpdate() {
-    this.check(this.props)
-  }
-
-  check() {
-    if (!this.isAuthenticated()) {
-      this.props.lock.show()
+  checkAuth() {
+    if (/access_token|id_token|error/.test(window.location.hash)) {
+      // Process callback
+      this.processAuth()
+    } else if (localStorage.getItem('isLoggedIn') === 'true') {
+      // Fetch a new token
+      this.renewAuth()
+    } else {
+      // Redirect to auth0 login form and callback
+      auth0.authorize()
     }
   }
 
-  startLogin = authResult => {
-    if (authResult && authResult.accessToken && authResult.idToken) {
-      this.props.lock.getUserInfo(authResult.accessToken, (error, profile) => {
-        // Finish login
-        if (error) return
-        // Get the time in millis that the access token will expire at
-        const expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime())
-        this.props.actions.saveAuth({
-          accessToken: authResult.accessToken,
-          idToken: authResult.idToken,
-          expiresAt,
-          profile
+  processAuth = options => {
+    auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        auth0.client.userInfo(authResult.accessToken, (error, profile) => {
+          // Finish login
+          if (error) return
+          // Get the time in millis that the access token will expire at
+          const expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime())
+          this.props.actions.saveAuth({
+            accessToken: authResult.accessToken,
+            idToken: authResult.idToken,
+            expiresAt,
+            profile
+          })
         })
-      })
-    }
+      } else if (err) {
+        console.warn('Auth error', err)
+        this.props.actions.failAuth()
+      }
+    })
   }
 
-  authError = err => {
-    this.props.lock.show({
-      flashMessage: {
-        type: 'error',
-        text: err.errorDescription
+  renewAuth = options => {
+    auth0.checkSession({}, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.props.actions.saveAuth(authResult)
+      } else if (err) {
+        this.props.actions.logout()
+        console.warn(err)
       }
     })
   }
