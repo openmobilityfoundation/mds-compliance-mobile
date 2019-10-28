@@ -23,6 +23,7 @@ import PropTypes from 'prop-types'
 import { IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonLabel, IonList } from '@ionic/react'
 
 import { withReports } from 'store/index'
+import { getProviderName } from 'util/providers'
 import { printDateTime } from 'util/time'
 
 import SectionHeader from './SectionHeader'
@@ -61,7 +62,7 @@ export function AuditReportListItem({ actions, audit }) {
       <IonItem onClick={onClick} class='AuditReportListItem pointed hydrated'>
         <IonLabel>
           <h2>
-            {audit.provider_name} - {audit.provider_vehicle_id}
+            {getProviderName(audit.provider_id)} - {audit.provider_vehicle_id}
           </h2>
           <div className='AuditReportListItem-Auditor'>{audit.audit_subject_id}</div>
           <div className='AuditReportListItem-Time'>{printDateTime(audit.recorded)}</div>

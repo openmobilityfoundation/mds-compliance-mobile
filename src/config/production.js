@@ -142,7 +142,7 @@ export default {
     // List of active MDS Providers for this agency, case insensitive.
     // NOTE: this is the order in which they will appear in app menus.
     // See: `mds-core/packages/mds-providers`
-    activeProviders: ['Bird', 'Jump', 'Lime', 'Lyft', 'Sherpa', 'Spin', 'Wheels']
+    activeProviders: ['Bird', 'Bolt', 'Jump', 'Lime', 'Lyft', 'Sherpa', 'Spin', 'Wheels']
   },
 
   // URLs for MDS server endpoints used in this application

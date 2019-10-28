@@ -19,6 +19,7 @@ import PropTypes from 'prop-types'
 import { IonCard, IonCardContent, IonCol, IonGrid, IonRow } from '@ionic/react'
 
 import { withReports } from 'store/index'
+import { getProviderName } from 'util/providers'
 import { printDateTime } from 'util/time'
 
 import { getIssueLabel, getNoteTypeLabel } from './labels'
@@ -54,7 +55,10 @@ export function AuditHeader({ report }) {
   return (
     <>
       <IonGrid class='AuditGrid hydrated'>
-        <LabelValueRow label='Vehicle:' value={`${audit.trip.provider_name} - ${audit.trip.provider_vehicle_id}`} />
+        <LabelValueRow
+          label='Vehicle:'
+          value={`${getProviderName(audit.trip.provider_id)} - ${audit.trip.provider_vehicle_id}`}
+        />
         <LabelValueRow label='Auditor:' value={audit.trip.audit_subject_id} />
         <LabelValueRow label='Audited:' value={printDateTime(audit.audit_start)} />
       </IonGrid>
