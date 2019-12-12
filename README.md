@@ -19,10 +19,6 @@ This involves taking a trip on a provider vehicle (scooter or bike) and simultan
 - Ensure that the provider is reporting `trip_start`, `trip_end`, etc events accurately and in a timely manner.
 - Verify that telemetry for the trip is being reported accurately and that it roughly matches telemetry recorded during the audit.
 
-A full user manual is beyond the scope of this document, please see:
-
-- [Compliance-Mobile-Instructions.pdf](Compliance-Mobile-Instructions.pdf)
-
 ## Setup for your Agency
 
 The app has been set up to run under `dev` and `production` deployment environments, with an optional `staging` deployment as well. At runtime, the app will automatically load the appropriate configuration according to the current deployment.
