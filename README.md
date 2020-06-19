@@ -1,3 +1,19 @@
+# Mobility Data Specification
+
+The Mobility Data Specification (**MDS**), a project of the [Open Mobility Foundation](http://www.openmobilityfoundation.org) (OMF),
+is a set of Application Programming Interfaces (APIs) focused on dockless e-scooters, bicycles and carshare. Inspired by projects
+like [GTFS](https://developers.google.com/transit/gtfs/reference/) and [GBFS](https://github.com/NABSA/gbfs), the goals of MDS are
+to provide a standardized way for municipalities or other regulatory agencies to ingest, compare and analyze data from mobility
+service providers, and to give municipalities the ability to express regulation in machine-readable formats.
+
+**MDS** helps cities interact with companies who operate dockless scooters, bicycles and carshare in the public right-of-way. MDS
+is a key piece of digital infrastructure that supports the effective implementation of mobility policies in cities around the world.
+
+**MDS** is an open-source project. It was originally created by the [Los Angeles Department of Transportation](http://ladot.io) (LADOT).
+In November 2019, stewardship of MDS and the ownership of this repository was transferred to the Open Mobility Foundation. GitHub
+automatically redirects any links to this repository in the `CityOfLosAngeles` organization to the `openmobilityfoundation` instead.
+MDS continues to be used by LADOT and many other municipalities.
+
 # MDS Compliance Mobile App
 
 ## Purpose / Usage
@@ -36,7 +52,7 @@ Before you can run the Compliance Mobile app you must do the following:
 
 You will need to set up the MDS-Audit service to field API requests from the app. For detailed instructions, please see:
 
-- [`mds-audit`](https://github.com/CityOfLosAngeles/mds-core/tree/master/packages/mds-audit)
+- [`mds-audit`](https://github.com/openmobilityfoundation/mds-core/tree/master/packages/mds-audit)
 
 ### <a name="auth0">2</a>. Auth0 Account Setup
 
@@ -71,7 +87,7 @@ Note that when setting values as described below, a value entered in `production
 | `apps.compliance.mapbox.token`                | Mapbox account token.
 | `apps.compliance.mapbox.settings.initialZoom` | GPS coordinates for the center of the vehicle map. You might, for example, set this to your agency headquarters or another recognizable landmark.
 | `provider.activeProviders`                    | Case-INsensitive list of names of active mobility service providers for your agency.
-|                                               | See [`mds-providers`](https://github.com/CityOfLosAngeles/mds-core/tree/master/packages/mds-providers) package for the full list.
+|                                               | See [`mds-providers`](https://github.com/openmobilityfoundation/mds-core/tree/master/packages/mds-providers) package for the full list.
 
 ## Local Development
 
