@@ -11,7 +11,7 @@
     "connected-react-router": "^6.3.2",
     "history": "^4.9.0",
     "ionicons": "^4.6.3",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "mapbox-gl": "^0.53.1",
     "mds-core": "git+ssh://git@github.com:CityOfLosAngeles/mds-core#@mds-core/mds-providers@0.1.5",
     "memoize-one": "^5.0.4",
