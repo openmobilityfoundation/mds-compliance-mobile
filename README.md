@@ -1,3 +1,6 @@
+## ⚠ Not Actively Maintained
+> **This repository is not actively maintained by the OMF and has been archived. It may be reactivated when there is more interest in maintaining it from the MDS community.**
+
 # Mobility Data Specification
 
 The Mobility Data Specification (**MDS**), a project of the [Open Mobility Foundation](http://www.openmobilityfoundation.org) (OMF),
